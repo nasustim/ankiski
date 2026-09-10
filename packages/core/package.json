@@ -1,0 +1,24 @@
+{
+  "name": "@ankiski/core",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "build": "echo 'source package, no build'"
+  },
+  "dependencies": {
+    "fflate": "0.8.3",
+    "sql.js": "1.14.2",
+    "ulid": "3.0.2",
+    "zod": "4.6.1"
+  },
+  "devDependencies": {
+    "@types/sql.js": "1.4.9",
+    "vitest": "5.0.0"
+  }
+}
