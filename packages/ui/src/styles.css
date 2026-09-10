@@ -1,0 +1,10 @@
+@import "tailwindcss";
+@import "@digital-go-jp/tailwind-theme-plugin/v4";
+
+@layer base {
+  body {
+    font-family: "Noto Sans JP", "Hiragino Sans", "Helvetica Neue", Arial, sans-serif;
+    color: var(--color-solid-gray-900);
+    background-color: var(--color-white);
+  }
+}
