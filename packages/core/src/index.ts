@@ -6,3 +6,4 @@ export * from "./merge.ts";
 export * from "./schema.ts";
 export * from "./types.ts";
 export * from "./vault.ts";
+export * from "./vault-json.ts";

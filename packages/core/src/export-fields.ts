@@ -35,20 +35,13 @@ export function sanitizeTags(tags: readonly string[]): string[] {
 
 /** The six ENGLISH_VOCAB_FIELDS values for a term, already HTML-rendered. */
 export function renderFieldValues(term: Term): string[] {
-  return ENGLISH_VOCAB_FIELDS.map((field) => {
-    switch (field) {
-      case "Term":
-        return renderText(term.term);
-      case "Reading":
-        return renderText(term.reading);
-      case "MeaningJa":
-        return renderText(term.meaningJa);
-      case "MeaningEn":
-        return renderText(term.meaningEn);
-      case "Example":
-        return renderText(term.example);
-      case "Source":
-        return renderSource(term.sourceUrl);
-    }
-  });
+  const values: Record<(typeof ENGLISH_VOCAB_FIELDS)[number], string> = {
+    Term: renderText(term.term),
+    Reading: renderText(term.reading),
+    MeaningJa: renderText(term.meaningJa),
+    MeaningEn: renderText(term.meaningEn),
+    Example: renderText(term.example),
+    Source: renderSource(term.sourceUrl),
+  };
+  return ENGLISH_VOCAB_FIELDS.map((field) => values[field]);
 }

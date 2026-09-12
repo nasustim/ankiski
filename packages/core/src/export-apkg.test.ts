@@ -185,7 +185,8 @@ describe("exportApkg", () => {
       other.close();
     }
     expect(ids[0]).toEqual(ids[1]);
-    expect(ids[0]).toEqual([now.getTime(), now.getTime() + 1]);
+    // Note and card ids share one millisecond counter: note, card, card, note, ...
+    expect(ids[0]).toEqual([now.getTime(), now.getTime() + 3]);
   });
 });
 
