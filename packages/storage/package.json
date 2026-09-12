@@ -1,0 +1,24 @@
+{
+  "name": "@ankiski/storage",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "build": "echo 'source package, no build'"
+  },
+  "dependencies": {
+    "@ankiski/core": "workspace:*",
+    "idb": "8.0.3",
+    "zod": "4.6.1"
+  },
+  "devDependencies": {
+    "@types/chrome": "0.2.9",
+    "fake-indexeddb": "6.2.5",
+    "vitest": "5.0.0"
+  }
+}
