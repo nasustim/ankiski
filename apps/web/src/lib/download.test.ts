@@ -25,15 +25,15 @@ describe("downloadBlob", () => {
 
 describe("downloadText", () => {
   it("wraps text in a blob of the requested type", () => {
-    const createObjectURL = vi.fn(() => "blob:fake");
+    const createObjectURL = vi.fn((_blob: Blob) => "blob:fake");
     const revokeObjectURL = vi.fn();
     vi.stubGlobal("URL", Object.assign(Object.create(URL), { createObjectURL, revokeObjectURL }));
     vi.spyOn(HTMLAnchorElement.prototype, "click").mockImplementation(() => {});
 
     downloadText("a\tb\n", "terms.txt", "text/tab-separated-values");
 
-    const blob = createObjectURL.mock.calls[0]?.[0] as unknown as Blob;
-    expect(blob.type).toBe("text/tab-separated-values;charset=utf-8");
+    const blob = createObjectURL.mock.calls[0]?.[0];
+    expect(blob?.type).toBe("text/tab-separated-values;charset=utf-8");
     vi.unstubAllGlobals();
   });
 });
