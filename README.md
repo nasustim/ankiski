@@ -2,7 +2,7 @@
 
 Serverless Anki vocabulary manager. Capture English terms from any page with a Chrome extension, manage them in a web app, export an Anki `.apkg`. No server, no accounts: data stays in browser storage.
 
-Spec and decisions: https://github.com/nasustim/anki/issues/1
+Spec and decisions: https://github.com/nasustim/ankiski/issues/1
 
 ## Development
 

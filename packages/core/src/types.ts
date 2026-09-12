@@ -1,6 +1,6 @@
 /**
  * Shared contracts for ankiski. Every package and app codes against these.
- * Spec: https://github.com/nasustim/anki/issues/1
+ * Spec: https://github.com/nasustim/ankiski/issues/1
  */
 
 export const SCHEMA_VERSION = 1 as const;
