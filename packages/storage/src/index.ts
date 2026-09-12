@@ -28,3 +28,11 @@ export type {
 export { selectStorage } from "./select.ts";
 export type { ChromeLike, ChromeMock } from "./testing/chrome-mock.ts";
 export { createChromeMock } from "./testing/chrome-mock.ts";
+export type { ImportVaultJsonResult } from "./vault-json.ts";
+export {
+  importVaultJson,
+  parseVaultJson,
+  serializeVault,
+  VaultJsonError,
+  vaultFileName,
+} from "./vault-json.ts";
