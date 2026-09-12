@@ -1,14 +1,9 @@
+import { ChromeStorageAdapter } from "@ankiski/storage";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { chromeStorage } from "../shared/storage-area.ts";
 import "../index.css";
-
-function Popup() {
-  return (
-    <main className="p-4 w-80">
-      <h1 className="text-std-20B-150">ankiski</h1>
-    </main>
-  );
-}
+import { Popup } from "./Popup.tsx";
 
 const container = document.getElementById("root");
 if (!container) {
@@ -17,6 +12,6 @@ if (!container) {
 
 createRoot(container).render(
   <StrictMode>
-    <Popup />
+    <Popup adapter={new ChromeStorageAdapter()} storage={chromeStorage()} />
   </StrictMode>,
 );

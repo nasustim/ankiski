@@ -1,14 +1,9 @@
+import { ChromeStorageAdapter } from "@ankiski/storage";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { chromeStorage } from "../shared/storage-area.ts";
 import "../index.css";
-
-function Options() {
-  return (
-    <main className="p-6">
-      <h1 className="text-std-24B-150">ankiski options</h1>
-    </main>
-  );
-}
+import { Options } from "./Options.tsx";
 
 const container = document.getElementById("root");
 if (!container) {
@@ -17,6 +12,6 @@ if (!container) {
 
 createRoot(container).render(
   <StrictMode>
-    <Options />
+    <Options adapter={new ChromeStorageAdapter()} storage={chromeStorage()} />
   </StrictMode>,
 );
