@@ -1,7 +1,7 @@
 # Deploys apps/web to GitHub Pages (https://nasustim.github.io/ankiski/).
 # Runs on every push to main that touches the web app or its dependencies,
 # and can be triggered by hand. Pages source must be "GitHub Actions".
-name: Deploy Pages
+name: Deploy web (GitHub Pages)
 
 on:
   push:
@@ -12,7 +12,7 @@ on:
       - "bun.lock"
       - "package.json"
       - "mise.toml"
-      - ".github/workflows/pages.yml"
+      - ".github/workflows/deploy-web.yml"
   workflow_dispatch:
 
 permissions:

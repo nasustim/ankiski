@@ -1,6 +1,6 @@
 # Builds the Chrome extension and attaches it as a zip to a GitHub Release.
 # Triggered by pushing a tag like v0.1.0, or by hand (creates a draft release).
-name: Release extension
+name: Release Chrome extension
 
 on:
   push:
