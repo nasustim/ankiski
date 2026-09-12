@@ -20,5 +20,11 @@ export { emptyVault } from "./empty.ts";
 export type { IndexedDbAdapterOptions } from "./indexeddb.ts";
 export { IndexedDbAdapter } from "./indexeddb.ts";
 export { MemoryAdapter } from "./memory.ts";
+export type {
+  SelectStorageMode,
+  SelectStorageOptions,
+  SelectStorageResult,
+} from "./select.ts";
+export { selectStorage } from "./select.ts";
 export type { ChromeLike, ChromeMock } from "./testing/chrome-mock.ts";
 export { createChromeMock } from "./testing/chrome-mock.ts";
