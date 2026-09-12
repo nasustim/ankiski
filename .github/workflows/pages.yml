@@ -1,9 +1,18 @@
-# Manual-only deployment of apps/web to GitHub Pages (https://nasustim.github.io/ankiski/).
-# Deployment is NOT enabled yet: this workflow only runs when triggered by hand
-# and GitHub Pages must be enabled (source: GitHub Actions) by the owner first.
-name: Pages (manual)
+# Deploys apps/web to GitHub Pages (https://nasustim.github.io/ankiski/).
+# Runs on every push to main that touches the web app or its dependencies,
+# and can be triggered by hand. Pages source must be "GitHub Actions".
+name: Deploy Pages
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - "apps/web/**"
+      - "packages/**"
+      - "bun.lock"
+      - "package.json"
+      - "mise.toml"
+      - ".github/workflows/pages.yml"
   workflow_dispatch:
 
 permissions:
@@ -22,8 +31,16 @@ jobs:
       - uses: actions/checkout@v4
       - uses: jdx/mise-action@v2
       - run: bun install --frozen-lockfile
-      # vite.config.ts sets base "/ankiski/"
+      # vite.config.ts sets base "/ankiski/". VITE_EXTENSION_ID is an optional
+      # repository variable holding the published extension's ID so the web app
+      # can talk to it; leave it unset to run in standalone (IndexedDB) mode.
       - run: bun run --filter @ankiski/web build
+        env:
+          VITE_EXTENSION_ID: ${{ vars.VITE_EXTENSION_ID }}
+      # React Router uses history routing; Pages serves 404.html for unknown
+      # paths, so ship a copy of index.html to make deep links work.
+      - run: cp apps/web/dist/index.html apps/web/dist/404.html
+      - run: touch apps/web/dist/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
           path: apps/web/dist
