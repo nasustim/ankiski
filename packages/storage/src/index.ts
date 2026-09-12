@@ -1,4 +1,20 @@
 export type { StorageAdapter } from "@ankiski/core";
+export type {
+  BridgeHandler,
+  BridgeHandlerOptions,
+  BridgeSender,
+  ExtensionBridgeAdapterOptions,
+  ExternalRuntimeLike,
+  RuntimeLike,
+} from "./bridge.ts";
+export {
+  attachBridgeHandler,
+  BridgeError,
+  createBridgeHandler,
+  DEFAULT_ALLOWED_ORIGINS,
+  detectExtension,
+  ExtensionBridgeAdapter,
+} from "./bridge.ts";
 export { ChromeStorageAdapter } from "./chrome-storage.ts";
 export { emptyVault } from "./empty.ts";
 export type { IndexedDbAdapterOptions } from "./indexeddb.ts";
