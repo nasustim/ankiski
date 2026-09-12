@@ -63,7 +63,7 @@ export type ExtensionChromeMock = {
 type ExternalListener = (
   message: unknown,
   sender: { origin?: string; url?: string },
-  sendResponse: (response: never) => void,
+  sendResponse: (response: unknown) => void,
 ) => boolean;
 
 export type ChromeMockApi = {
@@ -250,7 +250,7 @@ export function createExtensionChromeMock(
     sendExternal(message, sender) {
       return new Promise((resolve) => {
         for (const listener of externalListeners) {
-          listener(message, sender, resolve as (response: never) => void);
+          listener(message, sender, resolve);
         }
       });
     },
