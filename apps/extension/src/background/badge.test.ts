@@ -1,5 +1,5 @@
-import { createEmptyVault, createTerm, upsertTerm } from "@ankiski/core";
 import type { Term, Vault } from "@ankiski/core";
+import { createEmptyVault, createTerm, upsertTerm } from "@ankiski/core";
 import { describe, expect, it, vi } from "vitest";
 import { badgeText, updateBadge } from "./badge.ts";
 
